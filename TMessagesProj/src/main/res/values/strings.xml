@@ -8674,4 +8674,6 @@
     <string name="InviteBlockedTitle">Invite via Link</string>
     <string name="InviteBlockedOneMessage">You can send an invite link to the group in a private message instead.</string>
     <string name="InviteBlockedManyMessage">You can send these people an invite link to the group in a private message instead.</string>
+    <!--FORK CLIENT-->
+    <string name="BottomDialogs">Tap here to start a new chat.</string>
 </resources>
