@@ -32,12 +32,12 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
-import com.google.mlkit.common.MlKitException;
-import com.google.mlkit.vision.common.InputImage;
-import com.google.mlkit.vision.segmentation.subject.Subject;
-import com.google.mlkit.vision.segmentation.subject.SubjectSegmentation;
-import com.google.mlkit.vision.segmentation.subject.SubjectSegmenter;
-import com.google.mlkit.vision.segmentation.subject.SubjectSegmenterOptions;
+//import com.google.mlkit.common.MlKitException;
+//import com.google.mlkit.vision.common.InputImage;
+//import com.google.mlkit.vision.segmentation.subject.Subject;
+//import com.google.mlkit.vision.segmentation.subject.SubjectSegmentation;
+//import com.google.mlkit.vision.segmentation.subject.SubjectSegmenter;
+//import com.google.mlkit.vision.segmentation.subject.SubjectSegmenterOptions;
 
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.FileLoader;
@@ -530,6 +530,8 @@ public class StickerMakerView extends FrameLayout implements NotificationCenter.
         if (segmentingLoaded) {
             return;
         }
+        return;
+        /*
         if (segmentingLoading || source == null) return;
         if (Build.VERSION.SDK_INT < 24) return;
         SubjectSegmenter segmenter = SubjectSegmentation.getClient(
@@ -609,6 +611,7 @@ public class StickerMakerView extends FrameLayout implements NotificationCenter.
                         segmentingLoaded = true;
                     }
                 });
+         */
     }
 
     private void createSegmentImagePath(SegmentedObject object, int containerWidth, int containerHeight) {
@@ -818,7 +821,8 @@ public class StickerMakerView extends FrameLayout implements NotificationCenter.
     }
 
     public static boolean isWaitingMlKitError(Exception e) {
-        return e instanceof MlKitException && e.getMessage() != null && e.getMessage().contains("segmentation optional module to be downloaded");
+        return false;
+//        return e instanceof MlKitException && e.getMessage() != null && e.getMessage().contains("segmentation optional module to be downloaded");
     }
 
     public void setCurrentAccount(int account) {
