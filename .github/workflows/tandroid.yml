@@ -67,7 +67,14 @@ jobs:
           echo "ADDITIONAL_BUILD_NUMBER=$ADDITIONAL_BUILD_NUMBER" >> $vars
           echo "USER_REPO=$USER_REPO" >> $vars
           echo "CHECK_UPDATES=${{ matrix.updates }}" >> $vars
-          echo "USER_ID_OWNER=${{ secrets.USER_ID_OWNER }}" >> $vars
+          if [ -z "${{ secrets.USER_ID_OWNER }}" ]
+          then
+            echo "USER_ID_OWNER is not set, defaulting to 0"
+            echo "USER_ID_OWNER=0" >> $vars
+          else
+            echo "USER_ID_OWNER is set"
+            echo "USER_ID_OWNER=${{ secrets.USER_ID_OWNER }}" >> $vars
+          fi
 
           ###
           echo $ADDITIONAL_BUILD_NUMBER
